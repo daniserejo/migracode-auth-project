@@ -1,6 +1,7 @@
 const express = require("express")
 require('dotenv').config()
 const bcrypt = require("bcrypt")
+const cors = require("cors")
 
 const generateJwt = require("./utils/jwt.js")
 const authorize = require("./middleware/authorize.js")
@@ -10,6 +11,7 @@ const app = express()
 const users = []
 
 app.use(express.json())
+app.use(cors())
 
 app.get("/", (req, res) => {
     res.send("Hello migracode!")
